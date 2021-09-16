@@ -1,4 +1,5 @@
 
+
 // Récupération de l'id de la commande provenant du serveur que l'on a enregistré dans le localstorage
 const orderId = localStorage.getItem("orderId");
 console.log(orderId);

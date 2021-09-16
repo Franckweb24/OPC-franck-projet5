@@ -75,8 +75,8 @@ function ajouter() {
     const articleId = $_GET("id");
     let produit = articleId;
     let quantite = parseInt(document.getElementById("quantite").value);
-    let price = parseInt(document.getElementById("price").innerHTML); console.log(document.getElementById("price").innerHTML);
-    let monPanier = new Panier();
+    let price = parseInt(document.getElementById("price").innerHTML);
+    let monPanier = new Panier(); console.log(quantite);
     monPanier.ajouterArticle(produit, quantite, price);
     let tableau = document.getElementById("tableau");
     let longueurTab = parseInt(document.getElementById("quantite").value);
@@ -88,7 +88,6 @@ function ajouter() {
     let longueur = monPanier.liste.length;
     for (let i = 0; i < longueur; i++) {
         let ligne = monPanier.liste[i];
-        console.log(tableau);
 
         let ligneTableau = tableau.insertRow(-1);
         let colonne1 = ligneTableau.insertCell(0);
@@ -105,8 +104,10 @@ function ajouter() {
         colonne4.innerHTML += ligne.getpriceLigne();
         let colonne5 = ligneTableau.insertCell(4);
 
-        colonne5.innerHTML += "<button class=\"btn-retirer\" class=\"btn btn-primary\" type=\"submit\" onclick=\"supprimer(this.parentNode.parentNode.cells[0].innerHTML)\"><span class=\"glyphicon glyphicon-remove\"></span> Retirer</button>";
-    } console.log(document.getElementById("priceTotal"));
+        colonne5.innerHTML += "<button class=\"btn-retirer\" type=\"submit\" onclick=\"supprimer(this.parentNode.parentNode.cells[0].innerHTML)\"><span></span> Retirer</button>";
+    } 
+
+    console.log(quantite);
 
     document.getElementById("priceTotal").innerHTML = monPanier.getpricePanier();
 
@@ -115,11 +116,15 @@ function ajouter() {
     }
 
     document.getElementById("nbreLignes").innerHTML = longueur;
-    console.log(longueur);
+
     document.getElementById("nb-article").innerHTML = quantite;
 
-    localStorage.setItem("monpanier", JSON.stringify(monPanier));
-    console.log(localStorage.getItem('monpanier'));
+    /*--------------------local Storage--------------------*/
+
+
+    localStorage.setItem("monpanier[]", JSON.stringify(monPanier));
+    console.log(localStorage.getItem('monpanier')); 
+
 }
 
 

@@ -35,7 +35,7 @@ function displayArticle(article) {
         <figcaption class="name">`+ article.name + `</figcaption>
         <figcaption class="description">`+ article.description + `</figcaption>
         <figcaption class="price" id="price">` + article.price/100 + ",00 €" + `</figcaption>
-        <button type="button" onclick="window.location.href = 'produit.html?id=`+ article._id + `'" class="btn-card" class="add-to-cart">Voir l'article</button>
+        <button type="button" onclick="window.location.href = 'produit.html?id=`+ article._id + `'" class="btn-card">Voir l'article</button>
     </div>
     </figure>`
     console.log(article['imageUrl']); //pour la visualisation des Url dans la console

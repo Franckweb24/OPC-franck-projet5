@@ -2,7 +2,7 @@
 
 function Panier() {
     this.liste = [];
-    this.ajouterArticle = function (produit, quantite, price) {
+    this.ajouterArticle = function (produit, quantite, price) { 
         let index = this.getArticle(produit);
         if (index == -1) this.liste.push(new LignePanier(produit, quantite, price));
         else this.liste[index].ajouterquantite(quantite);
@@ -42,15 +42,17 @@ function LignePanier(produit, quantite, price) {
     }
     this.getproduit = function () {
         return this.produitArticle;
-    }
-}
+    } 
+    console.log(this.quantiteArticle);
+} 
 
 /*----------------local storage-----------------*/
 
 
 let panier = JSON.parse(localStorage.getItem('monpanier'));
 
-console.log(panier['liste']);
+
+displayPanier(panier['liste']);
 
 
 /*------------------injection du html-----------------*/
@@ -58,13 +60,19 @@ console.log(panier['liste']);
 function displayPanier(monPanier) {
     const element = document.getElementById("panier");
 
+console.log(monPanier[0]["priceArticle"]);
+
+let price = monPanier[0]["priceArticle"];
+let quantite = monPanier[0]["quantiteArticle"];
+let code = monPanier[0]["produitArticle"];
+
     let vueArticle = `
      
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>` + code +` </td>
+        <td> ` + quantite + `</td>
+        <td> `+ price + ` </td>
+        <td> `+ quantite * price + ` </td>
         <td></td>
     </tr>
 
