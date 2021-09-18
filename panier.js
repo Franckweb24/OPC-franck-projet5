@@ -62,6 +62,8 @@ function displayPanier(monPanier) {
 
 console.log(monPanier[0]["priceArticle"]);
 
+// faire une boucle sur le panier  voir variable
+
 let price = monPanier[0]["priceArticle"];
 let quantite = monPanier[0]["quantiteArticle"];
 let code = monPanier[0]["produitArticle"];
@@ -78,6 +80,8 @@ let code = monPanier[0]["produitArticle"];
 
 `
     element.insertAdjacentHTML('afterend', vueArticle);
+
+//  fin de la boucle
 
 };
 
